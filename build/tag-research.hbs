@@ -1,0 +1,103 @@
+{{!< default}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#tag}}
+    <main class="site-main outer">
+            <div class="inner">
+                <div class="research">
+                    <header class="research-header">
+                            <div class="research-title">
+                                <h1>{{name}}</h1>
+                            </div>
+                    </header>
+{{/tag}}                     
+                    <section class="cv-section">
+                        <h2>Publications</h2>
+                            {{#foreach posts}}
+                                {{#has tag="publication"}}
+                                    <article class="research-card">
+                                        <header class="research-card-header">
+                                            
+                                            {{#if feature_image}}
+                                                <a href="{{url}}">
+                                                <div class="research-card-bg" style="background-image: url({{img_url feature_image size="m"}})">
+                                                </div>
+                                                </a>
+                                            {{/if}}
+                                                
+                                        </header>
+                                        <section class="research-card-content">
+                                            <a href="{{url}}"><h3>{{title}}</h3></a>
+                                            <p>{{excerpt}}</p>
+                                        </section>
+                                        
+                                        <footer class="research-card-footer">
+                                            <p>{{tag}}</p>                    
+                                        </footer>
+                                    </article>
+                                {{/has}}
+                            {{/foreach}}
+                    </section>
+                                       
+                    <section class="cv-section">
+                        <h2>Conference Presentations</h2>
+                    
+                            {{#foreach posts}}
+                                {{#has tag="conference"}}
+                                    <article class="research-card">
+                                        <header class="research-card-header">
+                                            
+                                            {{#if feature_image}}
+                                                <a href="{{url}}">
+                                                <div class="research-card-bg" style="background-image: url({{img_url feature_image size="m"}})">
+                                                </div>
+                                                </a>
+                                            {{/if}}
+                                                
+                                        </header>
+                                        <section class="research-card-content">
+                                            <a href="{{url}}"><h3>{{title}}</h3></a>
+                                            <p>{{excerpt}}</p>
+                                        </section>
+                                        
+                                        <footer class="research-card-footer">
+                                            <p>{{tag}}</p>
+                                        </footer>
+                                    </article>
+                                {{/has}}
+                            {{/foreach}}
+                    </section>
+                    
+                    
+                    <section class="cv-section">
+                        <h2>Dissertation Abstract</h2>
+                    
+                            {{#foreach posts}}
+                                {{#has tag="dissertation abstract"}}
+                                    <article class="research-card">
+                                        <header class="research-card-header">
+                                            
+                                            {{#if feature_image}}
+                                                <a href="{{url}}">
+                                                <div class="research-card-bg" style="background-image: url({{img_url feature_image size="m"}})">
+                                                </div>
+                                                </a>
+                                            {{/if}}
+                                                
+                                        </header>
+                                        <section class="research-card-content">
+                                            <a href="{{url}}"><h3>{{title}}</h3></a>
+                                            <p>{{excerpt}}</p>
+                                        </section>
+                                        
+                                        <footer class="research-card-footer">
+                                            <p>{{tag}}</p>
+                                        </footer>
+                                    </article>
+                                {{/has}}
+                            {{/foreach}}
+                    </section>
+                   
+                </div>
+            </div>
+        </main>

@@ -1,0 +1,133 @@
+.related-and-recent {
+    margin-top: 1em;
+}
+
+.rar-posts {
+
+    h3 {
+        flex: 0 0 100%;
+
+        background: $marble;
+        color: $raisin;
+        font-size: 1.5em;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+@media screen and (min-width: $medium) {
+    .related-and-recent {
+        margin-top: 6em;
+    }
+
+    .rar-posts {
+        border: 1px solid $marble;
+    }
+
+    h3 {
+        margin-top: -3em;
+    }
+}
+
+.rar-posts-container {
+    align-items: stretch;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.rar-card {
+    align-content: flex-end;
+    display: flex;
+    flex: 0 1 100%;
+    flex-direction: column;
+
+
+    background: $marble;
+    border-bottom: 3px solid $beach;
+
+    a {
+        width: 100%;
+        line-height: 1;
+        text-decoration: none;
+
+        &:hover .rar-card-darkbg,
+        &:active .rar-card-darkbg,
+        &:focus .rar-card-darkbg {
+            background: rgba(0, 0, 0, .75);
+            transition: .4s;
+        }
+
+        h4 {
+            color: $marble;
+            font-size: 1.2em;
+            font-weight: 700;
+
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+}
+
+@media screen and (min-width: $medium) {
+    .rar-card {
+        flex: 0 0 calc(100%/3 - 1em);
+        margin: .5em 0 1em;
+    }
+}
+
+.rar-card-header {
+    display: flex;
+    min-height: 100px;
+    width: 100%;
+
+    color: $raisin;
+    line-height: 1;
+}
+
+.rar-card-darkbg {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .25);
+}
+
+.rar-card-bg {
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.rar-card-content {
+    height: 100%;
+    padding: 1em;
+
+    color: $raisin;
+}
+
+.rar-card-footer {
+    padding: .5em 1em .75em;
+
+    a {
+        padding: .25em .5em;
+        background: $beach;
+        color: $raisin;
+        font-size: .75em;
+        font-weight: 300;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background: $pink;
+            transition: .4s;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+
+{{#if @first}}
+<!--  First Card  -->
+    <article class="feedbox-firstpost">
+        <a href="{{url}}">
+            {{#if feature_image}}
+                <div class="firstpost-bg" style="background-image: url({{img_url feature_image size="l"}})">
+            {{/if}}
+                    <div class="firstpost-gradient">
+                        <div class="firstpost-title">
+                            {{#if primary_tag}}<p>{{primary_tag.name}}</p>{{/if}}
+                            <h2>{{title}}</h2>
+                            <footer class="firstpost-footer">
+                                 <time datetime="{{date format="MMM DD, YYYY"}}">{{date format="MMM DD, YYYY"}}</time>
+                                 <p>{{reading_time}}</p>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </article>
+{{else}}
+    <article class="feedbox-card {{post_class}}{{#unless feature_image}} no-image{{/unless}}">
+        <a href="{{url}}">
+            {{#if feature_image}}
+                <div class="image-bg" style="background-image: url({{img_url feature_image size="m"}})">
+            {{/if}}
+                <div class="image-gradient">
+                    <header class="title">
+                        {{#if primary_tag}}<p>{{primary_tag.name}}</p>{{/if}}
+                        <h2>{{title}}</h2>
+                        <time datetime="{{date format="MMM DD, YYYY"}}">{{date format="MMM DD, YYYY"}}</time>
+                    </header>
+                    <footer class="post-footer">
+                        {{> "icons/readtime"}}
+                        <p>{{reading_time}}</p>
+                    </footer>
+                </div>
+            {{#if feature_image}}</div>{{/if}}
+        </a>
+    </article>
+{{/if}}

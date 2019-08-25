@@ -1,0 +1,90 @@
+.footer {
+
+
+    width: 100%;
+
+    margin-top: 1em;
+    padding-bottom: 1em;
+
+    background-color: $bark;
+    color: $beach;
+    font-size: .75em;
+
+    .inner {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .footer-left {
+        padding: .5em .5em 0 .5em;
+        text-align: center;
+    }
+
+    a {
+        color: $beach;
+        text-decoration: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $pink;
+            outline: none;
+        }
+    }
+
+    .footer-right {
+
+        padding: .5em .5em 0 .5em;
+        text-align: center;
+
+        a {
+            display: inline-block;
+
+
+            color: $beach;
+            text-decoration: none;
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: $pink;
+                outline: none;
+            }
+
+            &:last-child,
+            &:after {
+                content: " | ";
+                margin-left: 4px;
+                margin-right: 4px;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $beach;
+                }
+            }
+
+            &:last-child:after {
+                margin: 0;
+                content: "";
+            }
+        }
+    }
+
+    @media screen and (min-width: $medium) {
+        .inner {
+            flex-direction: row;
+        }
+
+        .footer-left {
+            padding: 1em 1em 1em 0;
+            text-align: left;
+        }
+
+        .footer-right {
+            padding: 1em 0 1em 1em;
+            text-align: right;
+        }
+    }
+}

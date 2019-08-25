@@ -1,0 +1,86 @@
+ /*  Modals for search and subscribe boxes  */
+ /*  Common styles  */
+ .modal {
+     display: none;
+     position: fixed;
+     z-index: 1;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     overflow: auto;
+     background-color: $raisin;
+
+     transition: 1s;
+     animation-name: fadeIn;
+     animation-duration: 0.4s;
+ }
+
+ /* Modal Content/Box */
+ %modal-content {
+
+     font-size: 2.5em;
+     font-weight: 900;
+     line-height: 1;
+     text-align: center;
+
+     animation-name: slideIn;
+     animation-duration: 0.4s;
+
+     p:nth-child(3) {
+         color: $marble;
+         font-size: .75em;
+         font-weight: 300;
+     }
+ }
+
+ %modal {
+     align-items: flex-end;
+     display: flex;
+     justify-content: center;
+     margin-top: .5em;
+     font-size: 1em;
+ }
+
+ %modal-input {
+     padding: .25em .5em;
+
+     background-color: transparent;
+     border: none;
+     color: $marble;
+     font-family: $fontstack-sans;
+     font-size: .5em;
+     transition: .4s;
+
+     &:focus {
+         color: $raisin;
+         outline: none;
+         transition: .4s;
+     }
+ }
+
+ /* The Close Button */
+ .close {
+     margin: 0 .25em;
+     position: fixed;
+     right: 0;
+     top: 0;
+
+     color: $raisin;
+     cursor: pointer;
+     font-size: 1.2em;
+     font-weight: 700;
+ }
+
+ .wk-search {
+     .close {
+         color: $beach;
+     }
+ }
+
+ .wk-smallnav {
+     .close {
+         color: $pink;
+         font-size: 1.8em;
+     }
+ }

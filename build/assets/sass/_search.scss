@@ -1,0 +1,56 @@
+.search-results {
+    margin-top: .25em;
+    padding-bottom: 50px;
+
+    color: $marble;
+    font-size: 75%;
+
+    p:first-child {
+        font-size: 50%;
+        font-weight: 300;
+    }
+
+    a {
+        width: 300px;
+
+        display: block;
+        margin: .5em auto;
+        padding-bottom: .25em;
+        background: $raisin;
+        background: rgba(30, 30, 36, .4);
+        border-bottom: 1px solid $beach;
+        text-decoration: none;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        border-bottom-color: $pink;
+        transition: .4s;
+    }
+
+    &:hover h4,
+    &:active h4,
+    &:focus h4 {
+        outline: none;
+        color: $pink;
+        transition: .4s;
+    }
+
+    &:last-child {
+        margin-bottom: 3em;
+    }
+
+    h4 {
+        margin-bottom: .25em;
+        color: $beach;
+        font-size: 40%;
+    }
+
+
+    h2 {
+        color: $marble;
+        font-size: 65%;
+    }
+
+}

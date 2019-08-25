@@ -1,0 +1,79 @@
+/*Subscribe modal*/
+.wk-back {
+    display: inline-block;
+    margin-top: 1em;
+
+    color: $olive;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-align: left;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+        color: $electric;
+    }
+}
+
+.wk-subscribe {
+    min-height: 100vh;
+    color: $marble;
+    text-align: center;
+
+    p {
+        color: $olive;
+    }
+
+    strong {
+        color: $electric
+    }
+
+    .close {
+        color: $olive;
+    }
+}
+
+.wk-subscribe .inner {
+    display: flex;
+}
+
+.subscribe-form {
+    margin-top: 1em;
+    line-height: 1;
+
+    .form-group {
+        display: inline-block;
+    }
+
+    input {
+        width: 30vw;
+        padding: .25em .5em;
+
+        color: $marble;
+        font-family: $fontstack-sans;
+        font-size: .5em;
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid $olive;
+        caret-color: $electric;
+        transition: .4s;
+    }
+
+    &:focus,
+    &:active {
+        background-color: $olive;
+        color: $raisin;
+        outline: none;
+        transition: .4s;
+    }
+
+    .subscribe-button {
+        display: inline-block;
+        padding: .25em .5em;
+        font-size: .5em;
+    }
+}
+
+.wk-subscribed {
+    font-size: 1.5em;
+}

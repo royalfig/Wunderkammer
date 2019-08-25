@@ -1,0 +1,62 @@
+{{!< default}}
+
+{{#author}}
+    <main class="site-main outer">
+        <div class="inner">
+
+            <div class="authorpage-outer" {{#if cover_image}} style="background-image: url({{img_url cover_image size="l"}});" {{/if}}>
+                <div class="authorpage-inner">
+                    <header class="authorpage-header">
+                        {{#if profile_image}} <img class=" authorpage-image" srcset="{{img_url profile_image size="s"}} 300w,
+                                {{img_url profile_image size="m"}} 600w,
+                                {{img_url profile_image size="l"}} 1000w,
+                                {{img_url profile_image size="xl"}} 2000w" sizes="(max-width: 1000px) 300px, 500px" src="{{img_url profile_image size="m"}}" alt="{{name}}">
+                        {{/if}}
+                        <h1 class="authorpage-h1">{{name}}</h1>
+                        <div class="authorpage-findme">
+                            {{#if location}}
+                                {{> "icons/map"}}
+                                <p>{{location}}</p>
+                            {{/if}}
+                            
+                            {{#if website}}
+                                <a href="{{website}}" target="_blank" rel="noopener">{{> "icons/website"}}</a>
+                            {{/if}}
+                            {{#if twitter}}
+                                <a href="{{twitter_url}}" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+                            {{/if}}
+                            {{#if facebook}}
+                                <a href="{{facebook_url}}" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+                            {{/if}}
+                        </div>
+                    </header>
+                </div>
+            </div>
+
+            {{#if bio}}
+                <h2 class="authorpage-bio-title">About Me</h2>    
+                <div class="authorpage-bio-container">
+                    <p class="authorpage-bio">{{bio}}</p>
+                </div>
+            {{/if}}
+            
+            <h2 class="authorpage-feedbox-title">{{plural ../pagination.total empty='No posts yet' singular='My % post' plural='My % posts'}}
+            </h2>
+            
+            {{/author}}
+            
+            {{!-- Posts --}}
+
+            <div class="feed-box">
+
+                <!-- Card Posts -->
+                {{#foreach posts}}
+                    {{> "post-card"}}
+                {{/foreach}}
+            </div>
+
+            {{pagination}}
+
+        </div>
+    </main>
+

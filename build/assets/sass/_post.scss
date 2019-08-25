@@ -1,0 +1,72 @@
+.post-template .outer {
+    padding: 0;
+}
+
+@media screen and (min-width: $medium) {
+    .post-template .outer {
+        padding: 0 5vw;
+    }
+}
+
+
+.post {
+    display: block;
+    margin-top: 1em;
+    width: 100%;
+}
+
+
+
+.post-header {
+    display: block;
+    height: 200px;
+    max-width: 100%;
+}
+
+@media screen and (min-width: $medium) {
+    .post-header {
+        height: 300px;
+    }
+}
+
+.post-bg {
+    height: 100%;
+    width: 100%;
+
+    background-size: cover;
+    background-position: 50%;
+}
+
+.post-gradient {
+    align-items: center display: flex justify-content: center height: 100%
+}
+
+
+/* Gallery Implementation */
+.kg-gallery-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5em auto;
+    max-width: 1040px;
+}
+
+.kg-gallery-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.kg-gallery-image img {
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.kg-gallery-row:not(:first-of-type) {
+    margin: 0.75em 0 0 0;
+}
+
+.kg-gallery-image:not(:first-of-type) {
+    margin: 0 0 0 0.75em;
+}

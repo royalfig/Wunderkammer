@@ -1,0 +1,317 @@
+@import 'fonts';
+@import 'colors';
+@import 'responsive';
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+ * v2.0 | 20110126
+ * License: none (public domain) */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {}
+
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote {
+
+    &:before,
+    &:after {
+        content: '';
+        content: none;
+    }
+}
+
+q {
+
+    &:before,
+    &:after {
+        content: '';
+        content: none;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html {
+    background: $raisin;
+    font-size: 1em;
+}
+
+@media screen and (min-width: $medium) {
+    html {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (min-width: $large) {
+    html {
+        font-size: 1.2em;
+    }
+}
+
+body {
+    background: $raisin;
+    font-family: $fontstack-sans;
+    font-weight: 400;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+}
+
+.noscroll {
+    overflow: hidden;
+}
+
+strong {
+    font-weight: 700;
+}
+
+blockquote {
+    padding: 1em margin-bottom: 1em margin-left: 40px margin-top: 1em border-left: 4px solid $olive
+}
+
+sup {
+    /* bro */
+    vertical-align: super;
+    font-size: smaller;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+cite {
+    display: block;
+    text-align: right;
+
+    &:before {
+        content: "\2014";
+    }
+}
+
+a:visited {
+    opacity: .75;
+}
+
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.outer {
+    padding: 0 5vw;
+}
+
+@media screen and (min-width: $medium) {
+    .outer {
+        padding: 0 4vw;
+    }
+}
+
+.inner {
+    margin: 0 auto;
+    max-width: 1040px;
+    width: 100%;
+}
+
+.icon {
+    display: inline-flex;
+    align-self: center;
+}
+
+.icon svg,
+.icon img {
+    height: 1em;
+    width: 1em;
+    fill: currentColor;
+}
+
+.icon.baseline svg,
+.icon img {
+    top: .25em;
+    position: relative;
+}
+
+/* To Style Masthead */
+.masthead {
+    align-items: center;
+    display: flex;
+    height: 50vh;
+    justify-content: center;
+    margin-top: 1em;
+
+    background-position: 50% 50%;
+    background-size: cover;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+    h1 {
+        padding: 1em;
+        color: $marble;
+        font-size: 2em;
+        font-weight: 900;
+        line-height: 1;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}
+
+//To style pagination
+.pagination {
+    margin: 1em auto;
+
+    color: $marble;
+    text-align: center;
+
+    .newer-posts {
+        margin-right: .5em;
+    }
+
+    .older-posts {
+        margin-left: .5em;
+    }
+
+    a {
+        color: $electric;
+        text-decoration: none;
+
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $olive;
+            transition: .4s;
+        }
+    }
+}
+
+// Imports 
+@import 'site-nav';
+@import 'buttons';
+@import 'feed-box';
+@import 'modal';
+@import 'footer';
+@import 'post';
+@import 'search';
+@import 'research';
+@import 'subscribe';
+@import 'rar';
+@import 'error';
+@import 'author';

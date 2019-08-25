@@ -1,0 +1,80 @@
+<!--  Nav Modal for Small Viewport  -->
+<nav class="smallnav">
+    <div class="smallnav-box">
+        <button class="modal-button smallnav-button" data-modal="smallnav-modal" type="button">
+            {{> "icons/hamburger"}}
+        </button>
+        <a href="{{@site.url}}">{{@site.title}}</a>
+        {{!-- 
+        <button id="search-button" class="modal-button smallnav-button" data-modal="search-modal">
+            {{> "icons/search"}}
+        </button> --}}
+    </div>
+</nav>
+ 
+{{!-- Nav Modal Screen for Small Viewports --}}
+    <nav id="smallnav-modal" class="wk-smallnav modal">
+
+        {{!-- Modal content --}}
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3><a href="{{@site.url}}">{{@site.title}}</a></h3>
+            <ul role="menu">
+                <li>Social</li>
+                <ul class="smallnav-social">
+                        <li><a href="https://instagram.com/theroyalfig" target="_blank" rel="noopener">Instagram</a></li>
+                    {{#if @site.twitter}}
+                        <li><a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a></li>
+                    {{/if}}
+                        <li><a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" target="_blank" rel="noopener">Feedly</a></li>
+                </ul>
+                <li>Get Around</li>
+                <ul>
+                {{#foreach navigation}}
+                    <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+                {{/foreach}}
+                </ul>
+            </ul>
+        </div>
+    </nav>
+
+<!--Social Nav-->
+<nav class="nav-social">
+    <div class="social-box">
+        <ul role="menu">        
+                <li><a href="https://instagram.com/theroyalfig" target="_blank" rel="noopener">{{> "icons/instagram"}}</a></li>
+            {{#if @site.twitter}}
+                <li><a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">{{> "icons/twitter"}}</a></li>
+            {{/if}}
+                <li><a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" target="_blank" rel="noopener">{{> "icons/feedly"}}</a></li>
+        </ul>
+    </div>
+    <div class="subscribe-box">
+        <button class="subscribe-button modal-button" data-modal="subscribe-modal" >Subscribe</a>
+    </div>
+</nav>
+
+<!--Main Nav-->
+<nav class="site-nav">
+    <div class="main-nav">
+        <div class="nav-left">
+            <ul role="menu">
+                <li><a href="{{@site.url}}">{{@site.title}}</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <ul role="menu">
+                <!-- Loop through the navigation items -->
+                {{#foreach navigation}}
+                    <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+                {{/foreach}}
+                <!-- End the loop -->
+                {{!-- 
+                <li id="search-button" class="modal-button" data-modal="search-modal">
+                        {{> "icons/search"}}
+                    
+                </li>--}}
+            </ul>
+        </div>
+    </div>
+</nav>

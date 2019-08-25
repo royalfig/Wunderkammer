@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <meta name="msvalidate.01" content="561DC83602B9F26EF80EBF7E008EEC5F" />
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- CSS --}}
+    <link rel="stylesheet" href="{{asset "assets/css/base.css"}}">
+
+    {{!-- Fonts --}}
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i|Source+Sans+Pro:300,400,700" rel="stylesheet">
+
+    {{!-- Ghost head for meta --}}
+    {{ghost_head}}
+
+</head>
+
+<body class="{{body_class}}">
+    <div class="site-wrapper">
+        <div class="outer">
+            <div class="error inner">
+                <h1>404</h1>
+                <h2>This part of the internet doesn't exist yet.</h2>
+                <a href="{{@site.url}}">← Return to {{@site.title}}</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>    

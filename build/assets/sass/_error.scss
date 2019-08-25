@@ -1,0 +1,23 @@
+.error {
+    margin-top: 3em;
+    text-align: center;
+
+    h1 {
+        color: $marble;
+        font-family: $fontstack-sans;
+        font-size: 2em;
+        text-transform: uppercase;
+    }
+
+    h2 {
+        color: $electric;
+        font-family: $fontstack-serif;
+        font-size: 3em;
+    }
+
+    a {
+        color: $marble;
+        font-family: $fontstack-sans;
+        font-size: 1.5em;
+    }
+}

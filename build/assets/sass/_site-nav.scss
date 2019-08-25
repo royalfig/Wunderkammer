@@ -1,0 +1,102 @@
+//Social Nav Styling
+.post-template .smallnav {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.smallnav {
+    margin-top: .75em;
+
+    .smallnav-box {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    a {
+        color: $marble;
+        font-size: 1.3em;
+        font-weight: 300;
+        text-decoration: none;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: $electric;
+        transition: .4s;
+        outline: none;
+    }
+
+
+    button {
+        padding: 0;
+        background: none;
+
+        border: none;
+        cursor: pointer;
+        outline: none;
+    }
+
+    svg {
+        height: 24px;
+        width: 24px;
+        fill: $marble;
+        line-height: 1;
+
+        &:hover,
+        &:active,
+        &:focus {
+            fill: $pink;
+            outline: none;
+        }
+    }
+}
+
+@media screen and (min-width: $medium) {
+    .smallnav {
+        display: none;
+    }
+
+    .nav-social {
+        display: none;
+    }
+}
+
+@media screen and (min-width: $medium) {
+    .nav-social {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: .35em;
+        margin-top: 1em;
+        color: $olive;
+    }
+
+    svg {
+        height: 1.1em;
+        margin-right: .75em;
+        width: 1.1em;
+        fill: $olive;
+        vertical-align: bottom;
+    }
+
+    &:hover {
+        fill: $electric;
+        transition: .5s;
+    }
+
+    .subscribe-button {
+        color: $olive;
+        border: 1px solid $olive;
+    }
+
+    &:hover,
+    &:focus {
+        background: $olive;
+        color: $raisin;
+    }
+
+    .subscribe-button {
+        padding: 0 .5em;
+    }
+}

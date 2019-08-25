@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <meta name="msvalidate.01" content="561DC83602B9F26EF80EBF7E008EEC5F" />
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- CSS --}}
+    <link rel="stylesheet" href="{{asset "assets/css/base.css"}}">
+
+    {{!-- Fonts --}}
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i" rel="stylesheet">
+
+    {{!-- Ghost head for meta --}}
+    {{ghost_head}}
+
+</head>
+
+<body class="{{body_class}}">
+    <div class="site-wrapper">
+        <header class="site-header outer">
+            <div class="inner">
+                {{navigation}}
+            </div>
+        </header>
+
+        {{!-- Site Masthead --}}
+        {{#is "home"}}
+            <section class="outer">
+                <div class="inner">
+                    <div class="masthead" {{#if @site.cover_image}} style="background-image: url({{img_url @site.cover_image size="l"}})" {{/if}}>
+                        {{#if @site.description}}
+                            <h1>{{@site.description}}</h1>
+                        {{/if}}
+                    </div>
+
+                    <h2 class="feedbox-header">Latest Posts</h2>
+
+                </div>
+            </section>
+        {{/is}}
+        {{!-- Content --}}
+        {{{body}}}
+
+        {{!-- Footer --}}
+    </div>
+    <footer class="footer">
+        <div class="outer">
+            <div class="inner">
+                <section class="footer-left">
+                    <a href="{{@site.url}}">{{@site.title}} &copy; {{date format="YYYY"}}</a>
+                </section>
+                <nav class="footer-right">
+                    <a href="{{@site.url}}">Latest Posts</a>
+                    {{#if @site.twitter}}<a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
+                    <a href="https://instagram/theroyalfig" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" target="_blank" rel="noopener">Feedly</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+
+    {{!-- Search Modal --}}
+    <div id="search-modal" class="wk-search modal">
+        <section class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Search</h3>
+            <div class="search-form">
+                <form>
+                    <input id="search-field" placeholder="Type to search..." autofocus="true">
+                    {{!-- <input id="ghost-search-field" placeholder="Type to search..." autofocus="true">--}}
+                </form>
+            </div>
+            {{!--<section class="search-results" id="ghost-search-results"></section>--}}
+            <section class="search-results" id="results"></section>
+        </section>
+    </div>
+
+    {{!-- Subscribe Modal --}}
+    <div id="subscribe-modal" class="wk-subscribe modal">
+        <section class="modal-content">
+            <span class="close">&times;</span>
+            {{!-- Subscribe Box --}}
+            {{^if success}}
+                <h1>Subscribe</h1>
+                <p>I'm gonna send you so much spam.</p>
+                <div class="subscribe-form">
+                    {{subscribe_form button_class="subscribe-button" placeholder="youremail@example.com" autofocus="true"}}
+                </div>
+                {{else}}
+                    <h1>Subscribed!</h1>
+                    <p>You're in! Posts from <strong>{{@site.title}}</strong> will be delivered to <strong>{{email}}</strong>.</p>
+                    {{/if}}
+        </section>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    
+    {{!-- 
+    <script type="text/javascript" src="https://unpkg.com/@tryghost/content-api@1.0.0/umd/content-api.min.js"></script>--}}
+
+    {{!-- Search JS 
+
+    <script type="text/javascript" src="{{asset "js/ghost-search.min.js"}}"></script>
+    <script type="text/javascript">
+        let ghostSearch = new GhostSearch({
+            key: 'cd05bd2189ede5a91f2a99859d',
+            host: 'https://ryanfeigenbaum.com',
+            input: '#search-field',
+            results: '#results',
+            options: {
+                keys: [
+                    'title',
+                    'plaintext'
+                ],
+            },
+            api: {
+                resource: 'posts',
+                parameters: {
+                    fields: ['title', 'slug', 'published_at'],
+                    formats: 'plaintext'
+                },
+            },
+            template: function(result) {
+                let url = [location.protocol, '//', location.host].join('');
+                var readableDate = new Date(result.published_at);
+                var y = readableDate.getFullYear();
+                var m = readableDate.getMonth();
+                var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                var d = readableDate.getDate();
+                var visibleDate = months[m] + " " + d + ", " + y;
+
+                return '<a href="' + url + '/' + result.slug + '"><h4>' + visibleDate + '</h4><h2>' + result.title + '</h2></a>';
+            },
+            on: {
+                afterDisplay: function(results) {
+                    if (results.total == 0 && document.getElementById('search-field').value != '') {
+                        let resultsElement = document.getElementById('results');
+                        let e = document.createElement('p');
+                        e.innerHTML = 'No results';
+                        resultsElement.appendChild(e.firstChild);
+                    };
+                }
+
+            }
+        })
+
+    </script>--}}
+    <script src="{{asset "js/jquery.fitvids.js"}}"></script> 
+
+    {{!-- Gallery JS --}}
+
+    <script>
+        var images = document.querySelectorAll(".kg-gallery-image img");
+        images.forEach(function(e) {
+            var a = e.closest(".kg-gallery-image"),
+                t = e.attributes.width.value / e.attributes.height.value;
+            a.style.flex = t + " 1 0%"
+        });
+
+    </script>
+
+    {{!-- Modal JS --}}
+
+    <script>
+        for (var modal = document.getElementsByClassName("modal"), btn = document.getElementsByClassName("modal-button"), i = 0; i < btn.length; i++) {
+            var thisBtn = btn[i];
+            thisBtn.addEventListener("click", function() {
+                var e = document.getElementById(this.dataset.modal),
+                    n = e.querySelector("span");
+                e.style.display = "flex", $("body").addClass("noscroll"), n.onclick = function() {
+                    e.style.display = "none", $("body").removeClass("noscroll")
+                }, window.onclick = function(n) {
+                    n.target == e && (e.style.display = "none", $("body").removeClass("noscroll"))
+                }
+            })
+        }
+
+    </script>
+
+    {{{block "scripts"}}}
+
+    {{ghost_foot}}
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+{{!< default}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+    <main class="site-main outer">
+            <div class="inner">
+                <div class="post">
+                    <header class="post-header">
+                        {{#if feature_image}}<div class="post-bg" style="background-image: url({{img_url feature_image size="l"}})">{{/if}}
+                            <div class="post-gradient">
+                                <div class="post-title">
+                                    <h1>{{title}}</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                    </header>
+                    <article class="post-body">
+                        <section class="metadata">
+                            {{#primary_author}}
+                                <a href="{{url}}"><img class="author-head" src="{{img_url profile_image size="s"}}"></a>
+                            {{/primary_author}}
+                            <time datetime="{{date format="MMM DD, YYYY"}}">Published on {{date format="MMM DD, YYYY"}}</time>
+                            <div class="share-box">
+                                <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+                                <a class="tw" href="https://twitter.com/share?text={{encode title}}&url={{url absolute="true"}}" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+                                <a class="email" href="mailto:?subject={{encode title}}&body=This just may be the most interesting thing I've ever read: {{url absolute="true"}}" target="_blank" rel="noopener">{{> "icons/email"}}</a>
+                            </div>
+                            {{#if tags}}
+                                <div class="tag-box">
+                                    {{#foreach tags}}
+                                    <a href="{{url}}" class="tag tag-{{id}} {{slug}}">
+                                        <p>{{name}}</p>
+                                    </a>
+                                   {{/foreach}}
+                                </div>
+                            {{/if}}
+                        </section>
+                        <section class="post-text">
+                            {{content}}
+                        </section>
+                    </article>
+                </div>
+            </div>
+        </main>
+{{/post}}
+
+{{!--  Related Posts --}}
+<aside class="outer related-and-recent">
+    
+{{#get "posts" limit="3" filter="tags:[{{post.tags}}]+id:-{{post.id}}" include="tags" as |related_posts|}}
+    {{#if related_posts}}
+            <section class="inner rar-posts">
+                <h3>Related Posts</h3>
+                    <div class="rar-posts-container">
+
+                        {{#foreach related_posts}}
+                            <article class="rar-card">
+                                <header class="rar-card-header">
+
+                                    
+                                        <a href="{{url}}">
+                                            <div class="rar-card-bg" style="background-image: url({{img_url feature_image size="s"}})">
+                                                <div class="rar-card-darkbg">
+                                                    <h4>{{title}}</h3>
+                                                </div>
+                                            </div>
+                                        </a>
+                                
+
+                                </header>
+                                <section class="rar-card-content">
+                                    <p>{{excerpt}}</p>
+                                </section>
+
+                                <footer class="rar-card-footer">
+                                    <p>{{tags separator=" " limit="3"}}</p>
+                                </footer>
+                            </article>
+                        {{/foreach}}
+            
+                    </div>
+            </section>
+       
+        {{/if}}
+                        
+    {{/get}}
+   
+</aside>
+
+
+
+
+{{#contentFor "scripts"}}
+    <script>
+      $(document).ready(function() {
+        $(".post-body").fitVids();
+      });
+    </script>
+{{/contentFor}}

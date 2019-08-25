@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- CSS --}}
+    <link rel="stylesheet" href="{{asset "assets/css/reset.css"}}">
+    <link rel="stylesheet" href="{{asset "assets/css/base.css"}}">
+
+    {{!-- Fonts --}}
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i|Source+Sans+Pro:300,400,700" rel="stylesheet">
+
+    <!-- Ghost head for meta -->
+    {{ghost_head}}
+
+</head>
+<body class="{{body_class}}">
+    <div class="site-wrapper">
+          
+        
+        
+        
+        <div class="outer">
+             
+            {{#if @labs.subscribers}}
+            <div class="wk-subscribe inner">
+                 {{!-- Subscribe Box --}}
+                {{^if success}}
+                    <h1>Subscribe</h1>
+                    <p>Because what's one more email in your inbox?</p>
+                    <div class="subscribe-form">
+                        {{subscribe_form button_class="subscribe-button" placeholder="youremail@example.com" autofocus="true"}}
+                    </div>
+                {{else}}
+                    <div class="wk-subscribed">
+                        <h1>Subscribed!</h1>
+                        <p>You're in! Posts from <strong>{{@site.title}}</strong> will be delivered to <strong>{{email}}</strong>.</p>
+                        <a class="wk-back" href="{{#if subscribed_url}}{{subscribed_url}}{{else}}{{@site.url}}{{/if}}">&larr; Back</a> 
+                    </div>
+                {{/if}}
+                
+                
+            </div>
+
+        </div>
+        {{/if}}
+        
+    </div>
+    
+        {{!-- Footer --}}
+        <footer class="footer">
+            <div class="outer">
+                <div class="inner">
+                    <section class="footer-left">
+                        <a href="{{@site.url}}">{{@site.title}} &copy; {{date format="YYYY"}}</a>
+                    </section>
+                    <nav class="footer-right">
+                        <a href="{{@site.url}}">Latest Posts</a>
+                        {{#if @site.twitter}}<a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
+                        <a href="https://instagram/theroyalfig" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" target="_blank" rel="noopener">Feedly</a>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+    </body>

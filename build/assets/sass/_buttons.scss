@@ -1,0 +1,38 @@
+%button {
+    vertical-align: bottom;
+
+    background: none;
+    cursor: pointer;
+    font-family: $fontstack-sans;
+    font-size: .75em;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        color: $raisin;
+        outline: none;
+        transition: .4s;
+    }
+
+    &:active {
+        box-shadow: inset 3px 3px 5px rgba(0, 0, 0, .25);
+    }
+}
+
+/*Subscribe button on modal
+.subscribe-button
+    @extend %button
+    
+    color: $olive
+    border: 1px solid $olive
+    &:hover, &:focus
+        background: $olive
+
+/*search button on modal, which won't be needed...
+.search-button
+    @extend %button
+    color: $beach
+    border: 1px solid $beach
+    &:hover, &:focus
+        background: $beach
+            
