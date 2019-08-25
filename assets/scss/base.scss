@@ -86,14 +86,14 @@ summary,
 time,
 mark,
 audio,
-video {}
+video {
 
-margin: 0;
-padding: 0;
-border: 0;
-font-size: 100%;
-font: inherit;
-vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -179,7 +179,11 @@ strong {
 }
 
 blockquote {
-    padding: 1em margin-bottom: 1em margin-left: 40px margin-top: 1em border-left: 4px solid $olive
+    padding: 1em;
+    margin-bottom: 1em;
+    margin-left: 40px;
+    margin-top: 1em;
+    border-left: 4px solid $olive;
 }
 
 sup {

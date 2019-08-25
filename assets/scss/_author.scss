@@ -13,7 +13,9 @@
 }
 
 @media screen and (min-width: $medium) {
-    .authorpage-outer height: 50vh;
+    .authorpage-outer {
+        height: 50vh;
+    }
 }
 
 .authorpage-inner {
